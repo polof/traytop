@@ -1,6 +1,6 @@
 {
-    "name": "Tray mover",
-    "uuid": "traymover@polof.github.com",
-    "description": "Move ALL tray icons to the top panel.",
+    "name": "traytop",
+    "uuid": "traytop@polof.github.com",
+    "description": "Move all tray icons to the top panel.",
     "shell-version": ["3.4.2"]
 }
