@@ -1,5 +1,5 @@
 /*
-  Tray mover
+  traytop
 
   Copyright 2013 Per Olofsson <pelle@dsv.su.se>
 

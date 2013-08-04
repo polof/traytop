@@ -18,7 +18,7 @@ Installation
 First, download the extension:
 
     cd ~/.local/share/gnome-shell/extensions
-    git clone https://github.com/polof/traymover.git traymover@polof.github.com
+    git clone https://github.com/polof/traytop.git traytop@polof.github.com
 
 Then, enable the extension in gnome-tweak-tool and restart GNOME Shell
 (Alt+F2 and "r").
