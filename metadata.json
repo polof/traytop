@@ -3,5 +3,5 @@
     "uuid": "traytop@polof.github.com",
     "description": "Move all tray icons to the top panel (GNOME 3.4).",
     "url": "https://github.com/polof/traytop",
-    "shell-version": ["3.4.2"]
+    "shell-version": ["3.4"]
 }
