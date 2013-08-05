@@ -1,5 +1,5 @@
 /*
-  traytop
+  traytop - GNOME Shell 3.4 extension that puts tray icons in the top panel.
 
   Copyright 2013 Per Olofsson <pelle@dsv.su.se>
 
@@ -28,8 +28,6 @@ function _onTrayIconRemoved(o, icon) {
 
 function init() {
     let traymanager = new Shell.TrayManager();
-
-    // MONKEY PATCH!!!
     Main.statusIconDispatcher._traymanager = traymanager;
 
     traymanager.connect('tray-icon-added',
