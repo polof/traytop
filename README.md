@@ -1,8 +1,8 @@
 traytop
 =======
 
-traytop is a GNOME Shell extension that moves all your tray icons to
-the top panel, where they belong.
+traytop is an extension for GNOME Shell 3.4 that moves all your tray
+icons to the top panel, where they belong.
 
 Features
 --------
@@ -12,13 +12,19 @@ Features
   (e.g., Network Manager which is replaced by the native Shell icon).
 * Tested in GNOME Shell 3.4.2 (Debian wheezy).
 
+Bugs
+----
+
+Probably won't work in later version of GNOME Shell.
+
 Installation
 ------------
 
-First, download the extension:
+1. Download the extension:
 
     cd ~/.local/share/gnome-shell/extensions
     git clone https://github.com/polof/traytop.git traytop@polof.github.com
 
-Then, enable the extension in gnome-tweak-tool and restart GNOME Shell
-(Alt+F2 and "r").
+2. Restart GNOME Shell (Alt+F2 and type 'r').
+3. Open gnome-tweak-tool and enable the extension.
+4. Restart GNOME Shell again.
