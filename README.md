@@ -15,7 +15,9 @@ Features
 Bugs
 ----
 
-Probably won't work in later version of GNOME Shell.
+* Probably won't work in later version of GNOME Shell.
+* Kind of a hack; abuses the `init()` function and requires restarting
+  the shell when enabling/disabling.
 
 Installation
 ------------
