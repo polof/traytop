@@ -22,8 +22,8 @@ Installation
 
 1. Download the extension:
 
-    cd ~/.local/share/gnome-shell/extensions
-    git clone https://github.com/polof/traytop.git traytop@polof.github.com
+        cd ~/.local/share/gnome-shell/extensions<br>
+        git clone https://github.com/polof/traytop.git traytop@polof.github.com
 
 2. Restart GNOME Shell (Alt+F2 and type 'r').
 3. Open gnome-tweak-tool and enable the extension.
