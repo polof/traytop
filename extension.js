@@ -10,36 +10,41 @@
 
 const Lang = imports.lang;
 const Main = imports.ui.main;
-const Shell = imports.gi.Shell;
-const StatusIconDispatcher = imports.ui.statusIconDispatcher;
 
 function _onTrayIconAdded(o, icon) {
-    let wmClass = (icon.wm_class || 'unknown').toLowerCase();
-    let role = StatusIconDispatcher.STANDARD_TRAY_ICON_IMPLEMENTATIONS[wmClass];
-    if (role)
-        this.emit('status-icon-added', icon, role);
-    else
-        this.emit('status-icon-added', icon, 'tray');
+    this.emit('status-icon-added', icon, 'tray');
 }
 
 function _onTrayIconRemoved(o, icon) {
     this.emit('status-icon-removed', icon);
 }
 
-function init() {
-    let traymanager = new Shell.TrayManager();
-    Main.statusIconDispatcher._traymanager = traymanager;
+function _connectStatusIconSignals(sid) {
+    let panel = Main.panel;
+    sid.connect('status-icon-added',
+                Lang.bind(panel, panel._onTrayIconAdded));
+    sid.connect('status-icon-removed',
+                Lang.bind(panel, panel._onTrayIconRemoved));
+}
 
-    traymanager.connect('tray-icon-added',
-                        Lang.bind(Main.statusIconDispatcher,
-                                  _onTrayIconAdded));
-    traymanager.connect('tray-icon-removed',
-                        Lang.bind(Main.statusIconDispatcher,
-                                  _onTrayIconRemoved));
+function init() {
 }
 
 function enable() {
+    let sid = Main.statusIconDispatcher;
+    // GNOME Shell 3.4 doesn't save the handler ID's so we can't
+    // disconnect the individual handlers.
+    sid.disconnectAll();
+    _connectStatusIconSignals(sid);
+    sid.connect('message-icon-added', Lang.bind(sid, _onTrayIconAdded));
+    sid.connect('message-icon-removed', Lang.bind(sid, _onTrayIconRemoved));
 }
 
 function disable() {
+    let sid = Main.statusIconDispatcher;
+    let nd = Main.notificationDaemon;
+    sid.disconnectAll();
+    _connectStatusIconSignals(sid);
+    sid.connect('message-icon-added', Lang.bind(nd, nd._onTrayIconAdded));
+    sid.connect('message-icon-removed', Lang.bind(nd, nd._onTrayIconRemoved));
 }
